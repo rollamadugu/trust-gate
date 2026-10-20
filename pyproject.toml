@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trust-gate"
+version = "0.1.0"
+description = "Mutation-based test-strength gate: fail CI when your passing tests are too weak to catch real bugs."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Krishnasai Rollamadugu" }]
+keywords = ["testing", "mutation-testing", "test-quality", "ci", "pytest", "test-automation"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development :: Testing",
+    "Intended Audience :: Developers",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+trust-gate = "trust_gate.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/rollamadugu/trust-gate"
+Repository = "https://github.com/rollamadugu/trust-gate"
+
+[tool.setuptools]
+packages = ["trust_gate"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
